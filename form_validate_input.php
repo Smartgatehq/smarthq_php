@@ -45,6 +45,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $websiteErr = "Website is required!";
     } else {
         $website = test_input($_POST["website"]);
+
+        // check if URL address syntax is valid (this regular expression also allows dashes in the URL)
+    if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
+        $websiteErr = "Invalid URL";
+      }
     }
 
     if (empty($_POST["comment"])) {
