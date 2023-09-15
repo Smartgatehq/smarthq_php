@@ -9,13 +9,13 @@ include 'mydb1.php'
 
 // using the Table called database called customer and table named users
 
-// sql to delete a record
-$sql = "DELETE FROM users WHERE CustomerID=10";
+// sql to update a record
+$sql = "UPDATE users SET CustomerName='Nathan Ose', ContactName='Ose lele' WHERE CustomerID=2";
 
 if ($conn->query($sql) === TRUE) {
-  echo "Record deleted successfully";
+  echo "Updated successfully";
 } else {
-  echo "Error deleting record: " . $conn->error;
+  echo "Error Updating record: " . $conn->error;
 }
 
 $conn->close();
