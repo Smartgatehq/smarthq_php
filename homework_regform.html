@@ -1,75 +1,4 @@
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "Add_details";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
-// Create database
-// $sql = "CREATE DATABASE Add_details";
-// if ($conn->query($sql) === TRUE) {
-//   echo "Database created successfully";
-// } else {
-//   echo "Error creating database: " . $conn->error;
-// }
-
-// $conn->close();
-
-// Creating table
-
-// $sql = 'CREATE TABLE regdetails(
-//     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-//     username VARCHAR(30) NOT NULL,
-//     password VARCHAR(30) NOT NULL,
-//     reg_date TIMESTAMP
-// )';
-
-// if ($conn->query($sql) === TRUE) {
-//     echo 'Table  created successfully';
-// } else {
-//     echo 'Error creating table: ' . $conn->error;
-// }
-
-
-// Codes to ensure details are added whe the form is submitted
-if(isset($_POST['submit'])){
-   
-    $username = $_POST['username'];
-    $password =  $_POST['password'];
-
-    echo $username;
-    echo $password;
- 
-    if($connection){
-     echo "Details added Successfully";
- }else {
-     echo "Details not added";
- }
- 
-  
- $querry = "INSERT INTO Add_details (username, password)";
- $query .= "VALUE('$username', '$password')";
-
-    $result = mysqli_query($connection, $query);
-    
-    if(!$result){
-        die("QUERY FAILED" . mysqli_error($connection));
-    }
- 
- }
-
-$conn->close();
-
-?>
-  
-  
-  
   <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -85,7 +14,7 @@ $conn->close();
   </head>
   
   <body>
-      <form action="homework_regform.php" method="post">
+      <form action="homework_addform.php" method="post" enctype="multipart/form-data" >
           <div class="my-form">
               <div class="text">
                   <p>Choose your <strong>Username</strong> and <strong>Password</strong> below</p>

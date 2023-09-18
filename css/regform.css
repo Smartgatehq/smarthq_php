@@ -52,8 +52,9 @@
       border: 2px solid var(--button-color);
     }
     
-    input:focus {
+    .form-field input:focus {
     background-color: var(--border-color);
+    border-color: var(--button-color);
     }
     
     /* .btn{
