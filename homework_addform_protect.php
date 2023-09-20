@@ -58,15 +58,17 @@ if(isset($_POST['submit'])){
     $hash = password_hash($password,PASSWORD_DEFAULT);
 
 
-    $sql = "INSERT INTO regdetails (username, password) VALUES ('$username', '$hash')";
+   // $sql = "INSERT INTO regdetails (username, password) VALUES ('$username', '$hash')";
  
-    if ($conn->query($sql) === TRUE) {
+   $stmt = $conn->prepare("INSERT INTO regdetails (username, password) VALUES (?,?)");
+
+   $stmt->bind_param("ss", $username, $hash);
+
+    if ($stmt->execute()) {
      echo "Details added Successfully";
  }else {
      echo "Details not added";
- }
- 
-  
+ } 
 
  }
 
