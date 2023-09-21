@@ -1,3 +1,22 @@
+<?php
+
+include "homework_refactor.php";
+
+if(isset($_POST['submit'])){
+   
+    $username = $_POST['username'];
+    $password =  $_POST['password'];
+
+//calling the function
+
+$result = createUser($username, $password);
+
+}
+?>
+
+
+
+
 
   <!DOCTYPE html>
   <html lang="en">
@@ -14,7 +33,7 @@
   </head>
   
   <body>
-      <form action="homework_addform_protect.php" method="post" enctype="multipart/form-data" >
+      <form action="" method="post" enctype="multipart/form-data" >
           <div class="my-form">
               <div class="text">
                   <p>Choose your <strong>Username</strong> and <strong>Password</strong> below</p>
